@@ -1,4 +1,3 @@
-```markdown
 # 👥 Go User Meeting Management
 
 A full-stack meeting management system built with Go, featuring Google OAuth authentication, Zoom integration, scheduled email reminders, and a clean HTML-based dashboard.
