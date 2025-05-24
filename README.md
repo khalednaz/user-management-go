@@ -1,4 +1,4 @@
-# 👥 Go User Meeting Management
+#  User Management Go
 
 A full-stack meeting management system built with Go, featuring Google OAuth authentication, Zoom integration, scheduled email reminders, and a clean HTML-based dashboard.
 
@@ -36,7 +36,6 @@ A full-stack meeting management system built with Go, featuring Google OAuth aut
 ### Backend
 
 - Go (Golang)
-- Gorilla Mux
 - SQLite (file-based DB)
 - OAuth2 (Google)
 - Zoom API
@@ -46,7 +45,7 @@ A full-stack meeting management system built with Go, featuring Google OAuth aut
 ### Frontend
 
 - HTML / CSS
-- Vanilla JS (form handling)
+- Javascript
 - Template rendering with Go's `html/template`
 
 ---
@@ -69,3 +68,50 @@ A full-stack meeting management system built with Go, featuring Google OAuth aut
 ```bash
 git clone https://github.com/khalednaz/user-management-go.git
 cd user-management-go
+
+
+Google OAuth Setup
+Go to Google Cloud Console
+
+Create a new project
+
+Enable Google+ API / OAuth 2.0
+
+Create OAuth 2.0 Client ID
+
+Add authorized redirect URI:
+
+
+http://localhost:8080/auth/google/callback
+5. Zoom API Setup
+Go to Zoom Marketplace
+
+Create an OAuth App
+
+Set redirect URI:
+
+http://localhost:8080/zoom/callback
+Add these permissions:
+
+Meeting:Write
+
+Meeting:Read
+
+Copy credentials into your .env
+
+🗃️ Folder Structure
+csharp
+Copy
+Edit
+go-user-app/
+│
+├── auth/               # Google OAuth logic
+├── database/           # DB connection (SQLite)
+├── handlers/           # HTTP route handlers
+├── models/             # Data models (User, Meeting)
+├── scheduler/          # Email scheduler job
+├── static/             # CSS, images
+├── templates/          # HTML templates
+├── utils/              # Helper methods (e.g. send mail)
+├── zoom/               # Zoom API integration
+└── main.go             # App entry point
