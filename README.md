@@ -1,4 +1,5 @@
-#  User Management Go
+```markdown
+# 👥 Go User Meeting Management
 
 A full-stack meeting management system built with Go, featuring Google OAuth authentication, Zoom integration, scheduled email reminders, and a clean HTML-based dashboard.
 
@@ -45,7 +46,6 @@ A full-stack meeting management system built with Go, featuring Google OAuth aut
 ### Frontend
 
 - HTML / CSS
-- Javascript
 - Template rendering with Go's `html/template`
 
 ---
@@ -58,6 +58,10 @@ A full-stack meeting management system built with Go, featuring Google OAuth aut
 | Zoom Account    | Developer account required        |
 | Google Project  | OAuth2 Client setup required      |
 | Gmail SMTP      | Used for sending email reminders  |
+| TDM-GCC         | Required for building on Windows  |
+
+> 📦 Download and install **TDM-GCC 10.3.0**  
+> [https://jmeubank.github.io/tdm-gcc/articles/2021-05/10.3.0-release](https://jmeubank.github.io/tdm-gcc/articles/2021-05/10.3.0-release)
 
 ---
 
@@ -68,41 +72,58 @@ A full-stack meeting management system built with Go, featuring Google OAuth aut
 ```bash
 git clone https://github.com/khalednaz/user-management-go.git
 cd user-management-go
+```
+
+---
 
 
-Google OAuth Setup
-Go to Google Cloud Console
+### 3. Build & Run (Windows)
 
-Create a new project
+If you're on Windows:
 
-Enable Google+ API / OAuth 2.0
+- Make sure you installed TDM-GCC as above
+- Set the environment variable before running:
 
-Create OAuth 2.0 Client ID
+```bash
+SET CGO_ENABLED=1
+go run .build
+```
 
-Add authorized redirect URI:
+---
+
+### 4. Google OAuth Setup
+
+- Go to **Google Cloud Console**
+- Create a new project
+- Enable **Google+ API / OAuth 2.0**
+- Create **OAuth 2.0 Client ID**
+- Add authorized redirect URI:
+  ```
+  http://localhost:8080/auth/google/callback
+  ```
+- Copy credentials into your `/auth/google.go`
 
 
-http://localhost:8080/auth/google/callback
-5. Zoom API Setup
-Go to Zoom Marketplace
+---
 
-Create an OAuth App
+### 5. Zoom API Setup
 
-Set redirect URI:
+- Go to [Zoom Marketplace](https://marketplace.zoom.us/)
+- Create an **OAuth App**
+- Set redirect URI:
+  ```
+  http://localhost:8080/zoom/callback
+  ```
+- Add these permissions:
+  - Meeting:Write
+  - Meeting:Read
+- Copy credentials into your `/zoom/meeting.go`
 
-http://localhost:8080/zoom/callback
-Add these permissions:
+---
 
-Meeting:Write
+## 🗃️ Folder Structure
 
-Meeting:Read
-
-Copy credentials into your .env
-
-🗃️ Folder Structure
-csharp
-Copy
-Edit
+```
 go-user-app/
 │
 ├── auth/               # Google OAuth logic
@@ -115,3 +136,11 @@ go-user-app/
 ├── utils/              # Helper methods (e.g. send mail)
 ├── zoom/               # Zoom API integration
 └── main.go             # App entry point
+```
+
+---
+
+## 📄 License
+
+MIT License © 2025 Khaled Naz
+```
