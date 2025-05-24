@@ -138,8 +138,3 @@ go-user-app/
 ```
 
 ---
-
-## 📄 License
-
-MIT License © 2025 Khaled Naz
-```
