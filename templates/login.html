@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -95,7 +95,7 @@
     .login-box {
       background-color: white;
       border-radius: 20px;
-      padding: 70px 50px;
+      padding: 50px 50px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
       max-width: 400px;
       width: 100%;
@@ -106,12 +106,9 @@
       text-align: left;
     }
 
-    .login-box label {
-      font-size: 0.85rem;
-    }
-
     .form-control {
       border-radius: 20px !important;
+      margin-bottom: 20px;
     }
 
     .btn-primary {
@@ -157,6 +154,12 @@
     <div class="login-box">
       <h2 class="mb-3">Log In</h2>
       <p class="mb-4">Manage platform users.</p>
+
+      {{if .Error}}
+      <div class="alert alert-danger text-center" role="alert">
+        {{.Error}}
+      </div>
+      {{end}}
 
       <form action="/login_submit" method="post">
         <div class="form-group text-left">

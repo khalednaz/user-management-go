@@ -116,6 +116,16 @@
       margin-top: 20px;
       text-align: center;
     }
+
+    .error-msg {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 14px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -137,6 +147,10 @@
     <div class="signup-box">
       <h2 class="mb-3">Sign Up</h2>
       <p class="mb-4">Create your account below.</p>
+
+      {{if .Error}}
+      <div class="error-msg">{{.Error}}</div>
+      {{end}}
 
       <form action="/signup_submit" method="post">
         <div class="form-group text-left">

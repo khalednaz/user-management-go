@@ -33,7 +33,7 @@ func StartEmailScheduler(email string) {
 	fmt.Println("Starting email scheduler for:", email)
 
 	go func() {
-		ticker := time.NewTicker(10 * time.Second) // Adjust interval as needed
+		ticker := time.NewTicker(60 * time.Second) // Adjust interval as needed
 		defer ticker.Stop()
 
 		for {
